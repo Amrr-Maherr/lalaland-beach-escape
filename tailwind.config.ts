@@ -52,6 +52,17 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// LaLa Land custom colors
+				lala: {
+					sand: '#F5E7D3',     // Sandy beige
+					sandDark: '#E8D0B0', // Darker sandy beige
+					blue: '#0EA5E9',     // Deep sea blue
+					blueDark: '#0369A1',  // Darker sea blue
+					orange: '#F97316',   // Burnt orange
+					orangeLight: '#FDBA74', // Lighter burnt orange
+					green: '#65A30D',    // Olive green
+					greenLight: '#D9F99D' // Lighter olive green
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
