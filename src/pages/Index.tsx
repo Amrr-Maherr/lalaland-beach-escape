@@ -22,7 +22,8 @@ const Index = () => {
       {/* Main Content */}
       <main>
         <AboutSection />
-        <GallerySection />
+        {/* Remove GallerySection from homepage now that it's a dedicated page */}
+        {/* <GallerySection /> */}
         <PricingSection />
         <TestimonialsSection />
         <EventsSection />

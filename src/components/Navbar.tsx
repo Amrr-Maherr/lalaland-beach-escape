@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Sun, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,6 +23,15 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  const navLinks = [
+    { name: 'About', href: '#about' },
+    { name: 'Gallery', href: '/gallery', isRoute: true },
+    { name: 'Pricing', href: '#pricing' },
+    { name: 'Experiences', href: '#events' },
+    { name: 'FAQ', href: '#faq' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -40,17 +50,29 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          {['About', 'Gallery', 'Pricing', 'Experiences', 'FAQ', 'Contact'].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className={`${
-                isScrolled ? 'text-foreground hover:text-lala-blue' : 'text-white text-shadow hover:text-lala-sand'
-              } transition-colors duration-300`}
-            >
-              {item}
-            </a>
-          ))}
+          {navLinks.map((item) =>
+            item.isRoute ? (
+              <Link
+                key={item.name}
+                to={item.href}
+                className={`${
+                  isScrolled ? 'text-foreground hover:text-lala-blue' : 'text-white text-shadow hover:text-lala-sand'
+                } transition-colors duration-300`}
+              >
+                {item.name}
+              </Link>
+            ) : (
+              <a
+                key={item.name}
+                href={item.href}
+                className={`${
+                  isScrolled ? 'text-foreground hover:text-lala-blue' : 'text-white text-shadow hover:text-lala-sand'
+                } transition-colors duration-300`}
+              >
+                {item.name}
+              </a>
+            )
+          )}
           <Button className="bg-lala-orange text-white hover:bg-lala-orangeLight">
             Book Now
           </Button>
@@ -70,16 +92,27 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-md py-4 px-6">
           <nav className="flex flex-col space-y-4">
-            {['About', 'Gallery', 'Pricing', 'Experiences', 'FAQ', 'Contact'].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-foreground hover:text-lala-blue transition-colors"
-                onClick={toggleMenu}
-              >
-                {item}
-              </a>
-            ))}
+            {navLinks.map((item) =>
+              item.isRoute ? (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-foreground hover:text-lala-blue transition-colors"
+                  onClick={toggleMenu}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-foreground hover:text-lala-blue transition-colors"
+                  onClick={toggleMenu}
+                >
+                  {item.name}
+                </a>
+              )
+            )}
             <Button className="bg-lala-orange text-white hover:bg-lala-orangeLight w-full">
               Book Now
             </Button>
