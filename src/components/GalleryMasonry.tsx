@@ -10,8 +10,16 @@ export const galleryCategories = [
   { label: "Activities", value: "activities", icon: <Play className="w-4 h-4" /> },
 ];
 
-// Sample gallery data (replace with real content/photos as desired)
-export const galleryData = [
+// Define the gallery item type more explicitly
+export type GalleryItemType = {
+  type: "image" | "video";
+  src: string;
+  category: string;
+  caption?: string;
+};
+
+// Sample gallery data with proper typing
+export const galleryData: GalleryItemType[] = [
   {
     type: "image",
     src: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21", // Ocean/beach
@@ -34,13 +42,13 @@ export const galleryData = [
     type: "image",
     src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
     category: "nature",
-    caption: "Palm trees by the water’s edge"
+    caption: "Palm trees by the water's edge"
   },
   {
     type: "image",
     src: "https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151",
     category: "nature",
-    caption: "Desert sand under Sinai’s sun"
+    caption: "Desert sand under Sinai's sun"
   },
   {
     type: "image",
@@ -86,10 +94,8 @@ export const galleryData = [
   },
 ];
 
-type GalleryItem = typeof galleryData[number];
-
 interface MasonryProps {
-  items: GalleryItem[];
+  items: GalleryItemType[];
   onItemClick: (item: { type: "image" | "video"; src: string; caption?: string }) => void;
 }
 

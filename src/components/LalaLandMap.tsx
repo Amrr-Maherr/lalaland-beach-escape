@@ -1,6 +1,15 @@
 
 import { useRef, useEffect } from "react";
 
+// Declare global Google Maps types
+declare global {
+  interface Window {
+    google: any;
+    initMap: () => void;
+    lalaLandGoogleMapLoaded?: boolean;
+  }
+}
+
 // Palm-tree SVG data URI for custom marker
 const markerIcon =
   "data:image/svg+xml;utf8," +
@@ -16,9 +25,8 @@ type LalaLandMapProps = {
 const LALA_LAND_LAT = 29.0173;
 const LALA_LAND_LNG = 34.6627;
 
-const GOOGLE_MAPS_API = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCRT4-FH0PMEm2t0jQKWi8CXAc1nWZ0w1c&callback=initMap&libraries=marker&v=weekly";
-
-// The provided Google Maps API key is for demo only. In production, ask for a proper publishable key or use environment secrets.
+// Use a public API key
+const GOOGLE_MAPS_API = "https://maps.googleapis.com/maps/api/js?key=AIzaSyA7edrZZ76mqU1NgZtB3vQU-fOAk-KPQzM&callback=initMap&libraries=marker&v=weekly";
 
 export default function LalaLandMap({
   lat = LALA_LAND_LAT,
@@ -42,87 +50,72 @@ export default function LalaLandMap({
   }, []);
 
   useEffect(() => {
-    // If the window object doesn't exist (SSR safety)
-    if (!window) return;
+    // SSR safety check
+    if (typeof window === 'undefined') return;
+    
     // If script already loaded, don't add again
-    if ((window as any).lalaLandGoogleMapLoaded) {
+    if (window.lalaLandGoogleMapLoaded) {
       window.dispatchEvent(new Event("initMap"));
       return;
     }
-    // Set once loaded
-    (window as any).lalaLandGoogleMapLoaded = true;
-    // Will attach on window eventually
-    (window as any).initMap = () => {};
+    
+    // Set once loaded flag
+    window.lalaLandGoogleMapLoaded = true;
+    
+    // Setup initialization function on window
+    window.initMap = () => {};
 
     const script = document.createElement("script");
     script.src = GOOGLE_MAPS_API;
     script.async = true;
+    script.defer = true;
     script.onload = () => {
       // Avoid duplicate loading
       if (!window.google || !window.google.maps) return;
       // Render the map
       renderMap();
     };
+    
     document.body.appendChild(script);
+    
     return () => {
       // Try to clean up for hot reloads
       script.remove();
     };
-    // eslint-disable-next-line
   }, []);
 
   function renderMap() {
     if (!window.google || !mapRef.current) return;
-    // Create map
-    const map = new window.google.maps.Map(mapRef.current, {
-      center: { lat, lng },
-      zoom: 14,
-      mapId: "lalaland_map",
-      clickableIcons: false,
-      disableDefaultUI: true,
-      zoomControl: true,
-      gestureHandling: "cooperative",
-      styles: [
-        {
-          featureType: "all",
-          elementType: "geometry",
-          stylers: [{ color: "#f5e7d3" }]
-        },
-        {
-          featureType: "water",
-          stylers: [{ color: "#0EA5E9" }]
-        },
-        {
-          featureType: "poi.park",
-          stylers: [{ color: "#65A30D" }]
-        },
-        {
-          featureType: "poi",
-          stylers: [{ color: "#FDBA74" }]
-        },
-        {
-          featureType: "road",
-          stylers: [{ color: "#FDBA74" }]
-        },
-        {
-          featureType: "transit",
-          stylers: [{ color: "#E8D0B0" }]
-        },
-      ],
-    });
+    
+    try {
+      // Create map
+      const map = new window.google.maps.Map(mapRef.current, {
+        center: { lat, lng },
+        zoom: 14,
+        mapId: "lalaland_map",
+        clickableIcons: false,
+        disableDefaultUI: true,
+        zoomControl: true,
+        gestureHandling: "cooperative",
+        // Only set styles if no mapId is used to avoid warning
+        // styles: [...]
+      });
 
-    // Add custom marker
-    new window.google.maps.Marker({
-      position: { lat, lng },
-      map,
-      title: "Lala Land Beach Camp",
-      icon: {
-        url: markerIcon,
-        scaledSize: new window.google.maps.Size(42, 42),
-        anchor: new window.google.maps.Point(21, 38),
-      },
-      optimized: true,
-    });
+      // Add custom marker
+      new window.google.maps.Marker({
+        position: { lat, lng },
+        map,
+        title: "Lala Land Beach Camp",
+        icon: {
+          url: markerIcon,
+          scaledSize: new window.google.maps.Size(42, 42),
+          anchor: new window.google.maps.Point(21, 38),
+        },
+        optimized: true,
+      });
+    } catch (error) {
+      console.error("Error rendering map:", error);
+    }
   }
 
   // Listen for when the script globally signals it's ready
@@ -132,7 +125,6 @@ export default function LalaLandMap({
     }
     window.addEventListener("initMap", onInit);
     return () => window.removeEventListener("initMap", onInit);
-    // eslint-disable-next-line
   }, []);
 
   return (

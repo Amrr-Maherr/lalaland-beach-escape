@@ -1,3 +1,4 @@
+
 import { MapPin } from "lucide-react";
 import LalaLandMap from "./LalaLandMap";
 
