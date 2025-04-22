@@ -5,15 +5,15 @@ import { ChevronDown } from 'lucide-react';
 const HeroSection = () => {
   return (
     <section id="hero" className="relative h-screen w-full overflow-hidden">
-      {/* Hero Background Image */}
+      {/* Hero Background Image - Fullscreen beach/sunset image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb"
-          alt="Lala Land Beach"
+          src="https://images.unsplash.com/photo-1472396961693-142e6e269027"
+          alt="Lala Land Beach at Sunset"
           className="w-full h-full object-cover"
         />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
+        {/* Enhanced Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-transparent"></div>
       </div>
 
       {/* Content */}
@@ -21,13 +21,13 @@ const HeroSection = () => {
         <h1 className="text-shadow-lg text-5xl md:text-7xl text-white mb-4 handwritten">
           Welcome to Lala Land
         </h1>
-        <p className="text-shadow text-xl md:text-2xl text-white mb-6 max-w-2xl fade-in">
-          Your escape in Nuweiba, where the mountains meet the Red Sea
+        <p className="text-shadow text-xl md:text-2xl text-white mb-8 max-w-2xl fade-in">
+          Your escape by the Red Sea
         </p>
         
         <div className="mt-8 fade-in animate-delay-200">
           <Button
-            className="bg-lala-orange text-white hover:bg-lala-orangeLight text-lg px-6 py-6 rounded-full hover-float"
+            className="bg-lala-orange text-white hover:bg-lala-orangeLight text-lg px-8 py-6 rounded-full hover-float"
             onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Explore the Camp

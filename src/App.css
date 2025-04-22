@@ -1,3 +1,4 @@
+
 /* Custom styles for Lala Land */
 
 /* Remove default padding from root */
@@ -69,4 +70,51 @@ html {
 ::selection {
   background: rgba(14, 165, 233, 0.2);
   color: currentColor;
+}
+
+/* Hero section fullscreen enhancements */
+#hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 15vh;
+  background: linear-gradient(to top, rgba(255,255,255,0.8), transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Enhanced button hover effects */
+.hover-float {
+  transition: all 0.3s ease;
+}
+
+.hover-float:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Gallery enhancements */
+.image-zoom {
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.image-zoom img {
+  transition: transform 0.7s ease-out;
+}
+
+.image-zoom:hover img {
+  transform: scale(1.07);
 }

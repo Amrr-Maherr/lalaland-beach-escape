@@ -1,3 +1,4 @@
+
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
@@ -22,8 +23,7 @@ const Index = () => {
       {/* Main Content */}
       <main>
         <AboutSection />
-        {/* Remove GallerySection from homepage now that it's a dedicated page */}
-        {/* <GallerySection /> */}
+        <GallerySection />
         <PricingSection />
         <TestimonialsSection />
         <EventsSection />

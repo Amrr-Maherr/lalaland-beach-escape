@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { TreePalm, Utensils, Waves } from 'lucide-react';
+import { TreePalm, Utensils, Waves, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 
@@ -10,7 +10,7 @@ const galleryItems = {
       id: 1,
       title: 'Beach Hut',
       description: 'Cozy beachfront hut with amazing views',
-      image: 'https://images.unsplash.com/photo-1721322800607-8c38375eef04'
+      image: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7'
     },
     {
       id: 2,
@@ -42,22 +42,22 @@ const galleryItems = {
       id: 2,
       title: 'Sunset Dinners',
       description: 'Dining with stunning Red Sea views',
-      image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb'
+      image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07'
     },
     {
       id: 3,
       title: 'Traditional Tea',
       description: 'Experience authentic Bedouin tea rituals',
-      image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb'
+      image: 'https://images.unsplash.com/photo-1469041797191-50ace28483c3'
     },
     {
       id: 4,
       title: 'Local Cuisine',
       description: 'Fresh seafood and Sinai specialties',
-      image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb'
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158'
     }
   ],
-  surroundings: [
+  nature: [
     {
       id: 1,
       title: 'Red Sea Beach',
@@ -80,7 +80,33 @@ const galleryItems = {
       id: 4,
       title: 'Evening Bonfires',
       description: 'Gather under the stars for stories and music',
+      image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07'
+    }
+  ],
+  activities: [
+    {
+      id: 1,
+      title: 'Beach Yoga',
+      description: 'Sunrise and sunset yoga sessions',
       image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb'
+    },
+    {
+      id: 2,
+      title: 'Community Gatherings',
+      description: 'Connect with fellow travelers over music and stories',
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158'
+    },
+    {
+      id: 3,
+      title: 'Desert Hiking',
+      description: 'Guided explorations of the surrounding mountains',
+      image: 'https://images.unsplash.com/photo-1469041797191-50ace28483c3'
+    },
+    {
+      id: 4,
+      title: 'Snorkeling Adventures',
+      description: 'Discover the underwater world of the Red Sea',
+      image: 'https://images.unsplash.com/photo-1500375592092-40eb2168fd21'
     }
   ]
 };
@@ -107,9 +133,13 @@ const GallerySection = () => {
                 <Utensils className="h-4 w-4" />
                 <span className="hidden sm:inline">Food & Dining</span>
               </TabsTrigger>
-              <TabsTrigger value="surroundings" className="flex items-center gap-2 data-[state=active]:bg-lala-sand">
+              <TabsTrigger value="nature" className="flex items-center gap-2 data-[state=active]:bg-lala-sand">
                 <Waves className="h-4 w-4" />
-                <span className="hidden sm:inline">Surroundings</span>
+                <span className="hidden sm:inline">Nature & Surroundings</span>
+              </TabsTrigger>
+              <TabsTrigger value="activities" className="flex items-center gap-2 data-[state=active]:bg-lala-sand">
+                <Users className="h-4 w-4" />
+                <span className="hidden sm:inline">Activities & Moments</span>
               </TabsTrigger>
             </TabsList>
           </div>
@@ -139,12 +169,14 @@ const GallerySection = () => {
         </Tabs>
         
         <div className="text-center mt-10">
-          <Button 
-            variant="outline" 
-            className="border-lala-blue text-lala-blue hover:bg-lala-blue hover:text-white"
-          >
-            View Full Gallery
-          </Button>
+          <a href="/gallery">
+            <Button 
+              variant="outline" 
+              className="border-lala-blue text-lala-blue hover:bg-lala-blue hover:text-white"
+            >
+              View Full Gallery
+            </Button>
+          </a>
         </div>
       </div>
     </section>

@@ -1,10 +1,11 @@
 
-import { MapPin } from "lucide-react";
+import { MapPin, TreePalm } from "lucide-react";
 import LalaLandMap from "./LalaLandMap";
+import { Button } from "@/components/ui/button";
 
 const MapSection = () => {
   return (
-    <section id="map" className="py-20">
+    <section id="map" className="py-20 bg-lala-sand/10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="handwritten text-4xl text-lala-blue mb-3">
@@ -19,7 +20,7 @@ const MapSection = () => {
           <div>
             <LalaLandMap />
             <div className="flex items-center gap-3 mt-4">
-              <MapPin className="text-lala-orange w-6 h-6 shrink-0" />
+              <TreePalm className="text-lala-orange w-6 h-6 shrink-0" />
               <div>
                 <div className="font-semibold text-base text-lala-blue dark:text-lala-orange">
                   Lala Land is located here, your peaceful escape by the Red Sea.
@@ -29,11 +30,32 @@ const MapSection = () => {
                 </div>
               </div>
             </div>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <a 
+                href="https://maps.app.goo.gl/KRjs54ZjzCuPnf6h7" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Button size="sm" variant="outline" className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4" />
+                  Open in Google Maps
+                </Button>
+              </a>
+              <a 
+                href="https://www.google.com/maps/dir/?api=1&destination=29.0173,34.6627" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Button size="sm" className="bg-lala-orange text-white hover:bg-lala-orangeLight flex items-center gap-2">
+                  Get Directions
+                </Button>
+              </a>
+            </div>
           </div>
           {/* Directions (text) */}
           <div className="bg-white rounded-xl shadow-md p-6">
             <div className="flex items-center mb-5">
-              <svg className="text-lala-orange h-6 w-6 mr-3" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M12 10v4m0 0v-4m0 4l-3-3m3 3l3-3M12 4v7m0 9v-2m0 0L9 16m3 2l3-2"/></svg>
+              <TreePalm className="text-lala-orange h-6 w-6 mr-3" />
               <h3 className="text-2xl font-semibold">How to Reach Us</h3>
             </div>
             <div className="space-y-6">
