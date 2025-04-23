@@ -32,7 +32,7 @@ const Gallery = () => {
         <div className="max-w-2xl mx-auto mb-4 text-xl md:text-2xl text-lala-blue/80 dark:text-lala-sand">
           “{quote}”
         </div>
-        <div className="flex items-center justify-center gap-3 mt-4 mb-6">
+        <div className="flex items-center justify-center flex-wrap gap-3 mt-4 mb-6">
           {galleryCategories.map((cat) => (
             <Button
               key={cat.value}
