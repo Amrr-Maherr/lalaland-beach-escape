@@ -10,7 +10,7 @@ const AboutSection = () => {
           <div className="w-full md:w-1/2 relative">
             <div className="rounded-2xl overflow-hidden shadow-xl image-zoom">
               <img 
-                src="https://images.unsplash.com/photo-1472396961693-142e6e269027" 
+                src="/public/WhatsApp Image 2025-04-23 at 23.21.40_5f46b05e.jpg" 
                 alt="Mountain view near Lala Land" 
                 className="w-full h-full object-cover"
               />
@@ -46,21 +46,21 @@ const AboutSection = () => {
             <div className="mt-8 flex -space-x-4">
               <div className="w-14 h-14 rounded-full border-2 border-white overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" 
+                  src="/public/WhatsApp Image 2025-04-23 at 23.21.40_5f46b05e.jpg" 
                   alt="Team member" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="w-14 h-14 rounded-full border-2 border-white overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" 
+                  src="/public/WhatsApp Image 2025-04-23 at 23.21.40_5f46b05e.jpg" 
                   alt="Team member" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="w-14 h-14 rounded-full border-2 border-white overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" 
+                  src="/public/WhatsApp Image 2025-04-23 at 23.21.40_5f46b05e.jpg" 
                   alt="Team member" 
                   className="w-full h-full object-cover"
                 />

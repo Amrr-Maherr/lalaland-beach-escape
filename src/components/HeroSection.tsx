@@ -8,12 +8,10 @@ const HeroSection = () => {
       {/* Hero Background Image - Fullscreen beach/sunset image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1472396961693-142e6e269027"
+          src="/public/WhatsApp Image 2025-04-23 at 23.19.21_8bf2e5b0.jpg"
           alt="Lala Land Beach at Sunset"
           className="w-full h-full object-cover"
         />
-        {/* Enhanced Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-transparent"></div>
       </div>
 
       {/* Content */}
@@ -44,13 +42,6 @@ const HeroSection = () => {
           <span className="text-sm mb-1">Scroll Down</span>
           <ChevronDown className="h-6 w-6" />
         </div>
-      </div>
-
-      {/* Wave Animation */}
-      <div className="absolute bottom-0 left-0 right-0 waves">
-        <div className="wave wave-1"></div>
-        <div className="wave wave-2"></div>
-        <div className="wave wave-3"></div>
       </div>
     </section>
   );

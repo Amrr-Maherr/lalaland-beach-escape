@@ -7,7 +7,7 @@ const testimonials = [
     id: 1,
     name: 'Sarah K.',
     location: 'Berlin, Germany',
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
+    image: '/public/WhatsApp Image 2025-04-23 at 23.21.40_5f46b05e.jpg',
     text: 'Lala Land is a true hidden gem. The simplicity of beach life combined with the warmth of the staff made this a transformative experience. I came for 3 days and stayed for 2 weeks!',
     rating: 5
   },
@@ -15,7 +15,7 @@ const testimonials = [
     id: 2,
     name: 'Ahmed M.',
     location: 'Cairo, Egypt',
-    image: 'https://images.unsplash.com/photo-1500375592092-40eb2168fd21',
+    image: '/public/WhatsApp Image 2025-04-23 at 23.19.21_8bf2e5b0.jpg',
     text: 'As an Egyptian, I\'ve visited many coastal camps, but Lala Land stands out for its authentic atmosphere and respect for nature. The food was incredible, and watching the stars at night was unforgettable.',
     rating: 5
   },
@@ -23,7 +23,7 @@ const testimonials = [
     id: 3,
     name: 'Maria C.',
     location: 'Barcelona, Spain',
-    image: 'https://images.unsplash.com/photo-1472396961693-142e6e269027',
+    image: '/public/WhatsApp Image 2025-04-23 at 23.21.40_ece80230.jpg',
     text: 'My digital detox at Lala Land was exactly what I needed. I disconnected from technology and reconnected with myself. The beach huts are simple but perfect, and falling asleep to the sound of waves is magical.',
     rating: 5
   },
