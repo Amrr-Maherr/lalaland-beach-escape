@@ -25,7 +25,7 @@ const Gallery = () => {
       <Navbar/>
     <div className="min-h-screen bg-lala-sand/70 dark:bg-[#29241c] transition-colors duration-300">
       {/* Hero/quote area */}
-      <section className="container mx-auto px-4 pb-2 pt-16 text-center">
+      <section className="container h-screen flex items-center justify-center flex-col mx-auto px-4 pb-2 pt-16 text-center">
         <h1 className="handwritten text-5xl md:text-7xl mb-2 text-lala-blue dark:text-lala-orange transition-all">
           Lala Land Gallery
         </h1>
