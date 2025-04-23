@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Gallery from "./pages/Gallery";
 import "./App.css";
+import WhatsAppFloatingIcon from "./components/WhatsAppFloatingIcon";
+import CallIcon from "./components/CallIcon";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +24,8 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <WhatsAppFloatingIcon />
+      <CallIcon/>
     </TooltipProvider>
   </QueryClientProvider>
 );

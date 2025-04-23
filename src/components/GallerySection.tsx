@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { TreePalm, Utensils, Waves, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { Link } from 'react-router-dom';
 
 const galleryItems = {
   rooms: [
@@ -169,14 +170,14 @@ const GallerySection = () => {
         </Tabs>
         
         <div className="text-center mt-10">
-          <a href="/gallery">
+          <Link to="/gallery">
             <Button 
               variant="outline" 
               className="border-lala-blue text-lala-blue hover:bg-lala-blue hover:text-white"
             >
               View Full Gallery
             </Button>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -4,6 +4,8 @@ import GalleryMasonry, { galleryCategories, galleryData } from "@/components/Gal
 import GalleryLightbox from "@/components/GalleryLightbox";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 const quote = "Let your eyes travel before your feet do.";
 
@@ -19,6 +21,8 @@ const Gallery = () => {
       : galleryData.filter((item) => item.category === activeCategory);
 
   return (
+    <>
+      <Navbar/>
     <div className="min-h-screen bg-lala-sand/70 dark:bg-[#29241c] transition-colors duration-300">
       {/* Hero/quote area */}
       <section className="container mx-auto px-4 pb-2 pt-16 text-center">
@@ -41,19 +45,6 @@ const Gallery = () => {
               {cat.label}
             </Button>
           ))}
-        </div>
-        <div className="flex items-center justify-center gap-2 mt-3">
-          <Button
-            variant={music ? "default" : "outline"}
-            className="rounded-full text-lala-blue dark:text-lala-orange hover:bg-lala-orange hover:text-white transition"
-            onClick={() => setMusic((p) => !p)}
-            size="sm"
-            aria-pressed={music}
-          >
-            <Play className="inline-block h-4 w-4 mr-1" />
-            {music ? "Pause Ambience" : "Play Ambience"}
-          </Button>
-          {/* Placeholder, actual audio will be added later */}
         </div>
       </section>
 
@@ -81,7 +72,9 @@ const Gallery = () => {
         style={{ display: "none" }}
         data-testid="ambient-audio"
       />
-    </div>
+      </div>
+      <Footer/>
+    </>
   );
 };
 
