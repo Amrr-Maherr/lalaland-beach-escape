@@ -10,7 +10,6 @@ import FAQSection from '@/components/FAQSection';
 import MapSection from '@/components/MapSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
-import WeatherWidget from '@/components/WeatherWidget';
 
 const Index = () => {
   return (
@@ -20,11 +19,6 @@ const Index = () => {
       
       {/* Hero Section */}
       <HeroSection />
-      
-      {/* Weather Widget */}
-      <div className="container mx-auto px-4 -mt-16 relative z-20">
-        <WeatherWidget />
-      </div>
       
       {/* Main Content */}
       <main>
